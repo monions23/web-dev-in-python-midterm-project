@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <title>TV Tracker</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+  <body class="py-4">
+    <div class="app mx-auto">
+      <h1 class="title">TV Tracker</h1>
+      <div class="d-flex justify-content-end mb-3">
+        <button
+          id="openNewModal"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-add"
+        >
+          Add TV Show
+        </button>
+      </div>
+      <div id="shows"></div>
+    </div>
+
+    <!-- Bootstrap Script-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Modal -->
+    <!-- modal dialog -->
+    <div id="modal-edit" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit TV Show</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="edit-show-form">
+              <div class="mb-3">
+                <label for="titleEdit" class="form-label">Title</label>
+                <input type="text" class="form-control" id="titleEdit" />
+              </div>
+              <div class="mb-3">
+                <label for="descEdit" class="form-label">Description</label>
+                <textarea
+                  class="form-control"
+                  id="descEdit"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="seasonEdit" class="form-label">Season</label>
+                <input type="number" class="form-control" id="seasonEdit" />
+              </div>
+              <div class="mb-3">
+                <label for="episodeEdit" class="form-label">Episode</label>
+                <input type="number" class="form-control" id="episodeEdit" />
+              </div>
+              <div class="text-danger" id="msgEdit"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              id="close-edit-modal"
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button id="edit-btn" type="button" class="btn btn-success">
+              Yes, Update It.
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-add" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add A TV Show</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="new-show-form">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" />
+              </div>
+              <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <textarea class="form-control" id="desc" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="season" class="form-label">Season</label>
+                <input type="number" class="form-control" id="season" />
+              </div>
+              <div class="mb-3">
+                <label for="episode" class="form-label">Episode</label>
+                <input type="number" class="form-control" id="episode" />
+              </div>
+              <div class="text-danger" id="msg"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              id="close-add-modal"
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button id="add-btn" type="button" class="btn btn-primary">
+              Add
+            </button>
+          </div>
+          <div id="shows" class="overflow-y-auto"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="main.js"></script>
+  </body>
+</html>
