@@ -6,6 +6,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Center the login card on the page */
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fdf7ef; /* matches your warm palette */
+}
+
 .app {
   width: 500px;
   height: 100%;
@@ -96,4 +105,54 @@ body {
 #close-add-modal:hover,
 #close-edit-modal:hover {
   background-color: #b6b5b5;
+}
+
+/* Make the login box use your existing .app styling */
+.login-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Labels */
+.login-container label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+/* Inputs styled to match your border + radius theme */
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #efb762;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Login button matches your existing button theme */
+#login-btn {
+  background-color: #fac87d;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#login-btn:hover {
+  background-color: #efb762;
+}
+
+/* Error message */
+#msg {
+  color: #795520;
+  text-align: center;
+  height: 1rem;
 }

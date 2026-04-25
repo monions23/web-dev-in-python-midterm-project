@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+
+    <!-- Bootstrap Styles -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app login-container">
+      <h1>Login</h1>
+      <form id="login-form">
+        <label>
+          Username:
+          <input type="text" id="username" required />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input type="password" id="password" required />
+        </label>
+        <br />
+        <button id="login-btn" type="submit">Sign In</button>
+      </form>
+
+      <p id="msg"></p>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>

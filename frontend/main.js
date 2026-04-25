@@ -1,4 +1,3 @@
-data = [];
 const api = "http://127.0.0.1:8000/shows";
 let showIdInEdt = 0;
 
@@ -26,10 +25,10 @@ const renderShows = (data) => {
   const showDiv = document.getElementById("shows");
   showDiv.innerHTML = "";
   data
-    .sort((a, b) => b.id - a.id)
+    .sort((a, b) => b._id - a._id)
     .forEach((x) => {
       showDiv.innerHTML += `
-        <div id='show-${x.id}' class='show-box'>
+        <div id='show-${x._id}' class='show-box'>
             <div class='fw-bold fs-4'>${x.title}</div>
             <pre class="text-secondary ps-3">${x.desc}</pre>
             <pre class="text-secondary ps-3">Season: ${x.season}</pre>
@@ -37,11 +36,11 @@ const renderShows = (data) => {
             <div>
                 <button type="button" class="btn btn-sm" id="edit-toggle"
                     data-bs-toggle="modal" data-bs-target = "#modal-edit"
-                    onclick="setShowInEdit(${x.id})">
+                    onclick="setShowInEdit('${x._id}')">
                     Edit
                 </button>
                 <button type="button" class="btn btn-sm" id="delete-toggle"
-                    onClick="deleteShow(${x.id})">
+                    onClick="deleteShow('${x._id}')">
                 Delete
                 </button>
             </div>
@@ -54,8 +53,7 @@ function deleteShow(id) {
   const xhr = new XMLHttpRequest();
   xhr.onload = () => {
     if (xhr.status == 200) {
-      data = data.filter((x) => x.id != id);
-      renderShows(data);
+      getAllShows();
     }
   };
 
@@ -68,7 +66,7 @@ function setShowInEdit(id) {
   showIdInEdt = id;
 
   // Display current data in edit modal when it's opened
-  const show = data.find((x) => x.id === id);
+  const show = data.find((x) => x._id === id);
   // Fill modal inputs
   document.getElementById("titleEdit").value = show.title;
   document.getElementById("descEdit").value = show.desc;
@@ -100,8 +98,7 @@ document.getElementById("add-btn").addEventListener("click", (e) => {
   xhr.onload = () => {
     if (xhr.status == 201) {
       const newShow = JSON.parse(xhr.response);
-      data.push(newShow);
-      renderShows(data);
+      getAllShows();
 
       // close modal dialog
       const closeBtn = document.getElementById("close-add-modal");
@@ -147,7 +144,7 @@ document.getElementById("edit-btn").addEventListener("click", (e) => {
   xhr.onload = () => {
     if (xhr.status == 200) {
       const newShow = JSON.parse(xhr.response);
-      const show = data.find((x) => x.id == showIdInEdt);
+      const show = data.find((x) => x._id == showIdInEdt);
       show.title = newShow.title;
       show.desc = newShow.desc;
       show.season = newShow.season;
