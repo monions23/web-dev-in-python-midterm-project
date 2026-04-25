@@ -77,6 +77,8 @@ Finally, I added some styling to make it more individualized. This included chan
 
 Note that any necessary installations for your venv can be viewed in requirements.txt.
 
+Also, you need MongoDB installed for this part, including MongoDB Compass. In MongoDB compass, ensure you have a database called "tv_tracker" created with two collections: "show" and "users".
+
 ### Database Integration
 
 First, I wrote the Python script necessary to connect to a local MongoDB database in a new file called `database.py`.
